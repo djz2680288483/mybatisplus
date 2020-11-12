@@ -182,5 +182,7 @@ public class SaleOrder implements Serializable {
     private String  printUser;
 
     @ApiModelProperty(value = "打印时间")
-    private String  printTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date  printTime;
 }
