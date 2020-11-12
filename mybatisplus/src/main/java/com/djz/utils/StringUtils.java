@@ -4,6 +4,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -332,6 +335,26 @@ public class StringUtils {
         newStr.append("-");
         newStr.append(str.substring(6, 8));
         return newStr.toString();
+    }
+
+    /**
+     * 日期格式字符串转换为指定日期格式类型
+     * str  "20180112"
+     * dateFormat "yyyy-MM-dd"
+     *@return date  2020-01-12
+     */
+    public static Date Strdate(String str, String datefFormat) throws ParseException {
+        if(!str.isEmpty()){
+            if(datefFormat.isEmpty()){
+                datefFormat="yyyy-MM-dd HH:mm:ss";
+            }
+            SimpleDateFormat sdf=new SimpleDateFormat(datefFormat);
+
+            Date date=sdf.parse(str);
+            return date;
+
+        }
+        return null;
     }
 
     /**
